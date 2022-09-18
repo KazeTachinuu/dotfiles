@@ -1,0 +1,55 @@
+window:
+  padding:
+    x: 5
+    y: 5
+  dimensions:
+    columns: 80
+    lines: 40
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+  opacity: 1
+
+scrolling:
+  history: 1000
+  multiplier: 3
+
+font:
+  normal:
+    family: Comic Code Ligatures
+    style: Regular
+  italic:
+    family: Comic Code Ligatures
+    style: Italic
+  bold:
+    family: Comic Code Ligatures
+    style: Bold 
+  bold_italic: 
+    family: Comic Code Ligatures
+    style: Bold Italic
+  size: 14
+
+draw_bold_text_with_bright_colors: true
+
+colors:
+  primary:
+    background: '#2E3440'
+    foreground: '#bbc2cf'
+  # Normal colors
+  normal:
+    black:   '#2E3440'
+    red:     '#ff6c6b'
+    green:   '#98be65'
+    yellow:  '#ecbe7b'
+    blue:    '#51afef'
+    magenta: '#c678dd'
+    cyan:    '#46d9ff'
+    white:   '#bbc2cf'
+
+cursor:
+  style:
+    shape: Beam
+    blinking: Always
+    blinking-interval: 750
+
