@@ -26,7 +26,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 set encoding=UTF-8 
 
 call plug#end()
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+set colorcolumn=80
 match OverLength /\%81v.\+/
 
 nnoremap <C-f> :NERDTreeFocus<CR>
