@@ -1,0 +1,7 @@
+alias am='aliasmanager'
+alias vimrc='nvim /home/hugo/.vimrc'
+alias nvimrc='nvim /home/hugo/.config/nvim'
+alias config='cd /home/hugo/.config/'
+alias bspwmrc='nvim /home/hugo/.config/bspwm/bspwmrc'
+alias hi='cowsay hi $1'
+alias zshalias='nvim /home/hugo/.my_aliases.txt'
