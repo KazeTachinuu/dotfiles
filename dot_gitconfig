@@ -1,0 +1,7 @@
+[user]
+	email = hugo.sibony@epita.fr
+	name = Hugo Sibony
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
