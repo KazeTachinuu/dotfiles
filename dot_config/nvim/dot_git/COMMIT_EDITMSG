@@ -1,0 +1,9 @@
+jsp
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# HEAD detached from FETCH_HEAD
+# Changes to be committed:
+#	modified:   lua/custom/colors.lua
+#	modified:   lua/plugins/init.lua
+#
