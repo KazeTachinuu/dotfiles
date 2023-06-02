@@ -4,6 +4,7 @@
 
 ##---------- Keybindings for bspwm ----------##
 
+
 # Terminal (alacritty)
 super + Return
 	bspterm
@@ -32,9 +33,9 @@ super + {m,n,r,s,t,w,x}
 
 ##---------- Applications ----------##
 
-# Launch Apps
-super +  {f}
-	{brave}
+# Launch Browser
+super +  f
+  brave
 
 # Terminal Apps
 ctrl + alt + {v,r,h}
