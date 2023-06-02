@@ -52,5 +52,3 @@ source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Alias Management Tool
 source /home/hugo/.my_aliases.txt
-# ctf-tools: PATH setup
-export PATH=/home/hugo/ctf/Tools/bin:$PATH
