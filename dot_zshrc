@@ -28,7 +28,7 @@ rehash_precmd() {
 add-zsh-hook -Uz precmd rehash_precmd
 
 # omz
-alias zshrc="nvim ~/.zshrc"
+alias zshrc="chezmoi edit ~/.zshrc"
 alias ohmyzsh="thunar ~/.oh-my-zsh"
 
 # ls
@@ -47,8 +47,8 @@ alias gc='git commit -m'
 alias gp='git push origin master'
 
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Alias Management Tool
-source /home/hugo/.my_aliases.txt
+source $HOME/.my_aliases.txt
