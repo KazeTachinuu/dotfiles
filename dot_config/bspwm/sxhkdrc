@@ -91,6 +91,10 @@ XF86Audio{Mute,MicMute}
 XF86Audio{Next,Prev,Play,Stop}
 	mpc {next,prev,toggle,stop}
 
+# Toggle between Azerty/Qwerty
+super + k
+  ~/.local/bin/kb_tog
+
 ##---------- Bspwm ----------##
 
 # Hide/Unhide Window
@@ -103,7 +107,7 @@ super + {_,shift + }q
 
 # kill window
 ctrl + alt + Escape
-    xkill
+   xkill
 
 # Quit/Restart bspwm
 ctrl + shift + {q,r}
