@@ -18,6 +18,7 @@ parser.add_argument(
     metavar='custom format',
     dest='custom_format'
 )
+
 parser.add_argument(
     '-p',
     '--playpause',
