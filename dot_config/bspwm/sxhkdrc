@@ -35,7 +35,7 @@ super + {m,n,r,s,t,w,x}
 
 # Launch Browser
 super +  f
-  brave
+ firefox 
 
 # Terminal Apps
 ctrl + alt + {v,r,h}
