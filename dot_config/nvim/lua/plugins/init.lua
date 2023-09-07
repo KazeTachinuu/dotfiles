@@ -2,6 +2,8 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
 
+  {"github/copilot.vim",
+  lazy=false,},
   "nvim-lua/plenary.nvim",
 
   {
@@ -263,6 +265,7 @@ local default_plugins = {
     end,
   },
 }
+
 
 local config = require("core.utils").load_config()
 
