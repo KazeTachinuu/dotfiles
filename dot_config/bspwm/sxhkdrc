@@ -78,7 +78,9 @@ super + Print
 # Brighness control
 XF86MonBrightness{Up,Down}
 	bspbrightness{ --inc, --dec}
-	
+
+super + {_,shift +}b
+  bspbrightness{ --inc, --dec}
 # Speaker Volume control
 XF86Audio{RaiseVolume,LowerVolume}
 	bspvolume{ --inc, --dec}
