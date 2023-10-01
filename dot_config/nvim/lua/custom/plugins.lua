@@ -49,7 +49,11 @@ local plugins = {
 
   {
     "github/copilot.vim"
-  }
+  },
+  {"nvim-treesitter/nvim-treesitter-context",
+  lazy=false},
+{"dense-analysis/ale",
+  lazy=false},
 
 
   -- To make a plugin not be loaded
