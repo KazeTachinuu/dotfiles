@@ -8,7 +8,9 @@ ZSH_THEME="archcraft"
 
 export EDITOR=nvim
 zstyle ':omz:update' mode disabled  # disable automatic updates
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 zshcache_time="$(date +%s%N)"
