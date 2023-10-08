@@ -19,3 +19,4 @@ alias AUTHORS='echo -en  "Hugo\nSibony\nhugo.sibony\nhugo.sibony@epita.fr\n" > A
 alias nv='nvim'
 alias THLR='cd /home/hugo/EPITA/SPE/THLR'
 alias nvimrc='cd ~/.config/nvim ; chezmoi edit ../nvim; cd -'
+alias DM='cd ~/EPITA/SPE/ALGO/algo-DM'
