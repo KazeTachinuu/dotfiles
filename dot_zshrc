@@ -30,7 +30,7 @@ rehash_precmd() {
 add-zsh-hook -Uz precmd rehash_precmd
 
 # omz
-alias zshrc="chezmoi edit ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="thunar ~/.oh-my-zsh"
 
 # ls
