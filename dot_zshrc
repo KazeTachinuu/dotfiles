@@ -48,6 +48,9 @@ alias gi='git init'
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push origin master'
+alias gpl='git pull'
+alias gpt='git push --follow-tags'
+alias gt='git tag -ma'
 
 
 source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
