@@ -1,9 +1,0 @@
-[user]
-	email = lea.bonet@epita.fr
-	name = Lea Bonet
-[init]
-	defaultBranch = master
-[pull]
-	rebase = false
-[push]
-	autoSetupRemote = true
