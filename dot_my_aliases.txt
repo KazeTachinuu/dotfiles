@@ -10,3 +10,4 @@ alias lea="echo i love you my love"
 alias am='nvim ~/.my_aliases.txt'
 alias bat='batcat'
 alias ctf='cd /mnt/c/Users/hugo/Documents/ctf/'
+alias cfa='clang-format -i --verbose'
