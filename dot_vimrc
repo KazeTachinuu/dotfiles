@@ -8,17 +8,17 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'w0rp/ale'
 call vundle#end()
 
 
 """" Basic Behavior
 
 set number              " show line numbers
-set rnu
+set rnu                 " show relative line numbers
 set wrap                " wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
 set mouse=a             " enable mouse support (might not work well on Mac OS X)
@@ -35,11 +35,18 @@ set ruler               " show line and column number of the cursor on right sid
 " move vertically by visual line (don't skip wrapped lines)
 nmap j gj
 nmap k gk
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+
+nmap Q <nop>
+
+
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 
 """" Vim Appearance
-colorscheme everforest
+colorscheme sonokai
+set termguicolors
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " use filetype-based syntax highlighting, ftplugins, and indentation
@@ -69,8 +76,9 @@ nnoremap <CR> :nohlsearch<CR><CR>
 
 """" Miscellaneous settings that might be worth enabling
 
-set cursorline         " highlight current line
+" set cursorline         " highlight current line
 set background=dark    " configure Vim to use brighter colors
 set autoread           " autoreload the file in Vim if it has been changed outside of Vim
 
-
+set scrolloff=8
+set colorcolumn=80
