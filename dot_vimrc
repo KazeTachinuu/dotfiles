@@ -28,7 +28,7 @@ set showmatch           " highlight matching parentheses / brackets [{()}]
 set laststatus=2        " always show statusline (even with only single window)
 set ruler               " show line and column number of the cursor on right side of statusline
 " set visualbell          " blink cursor on error, instead of beeping
-
+set clipboard+=unamedplus
 
 """" Key Bindings
 
@@ -40,6 +40,12 @@ nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
 
 nmap Q <nop>
+
+" Select All
+nmap <C-a> gg<S-v>G
+
+" Copy all
+nmap <C-c> <cmd>%y<CR>
 
 
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -83,3 +89,4 @@ set autoread           " autoreload the file in Vim if it has been changed outsi
 
 set scrolloff=8
 set colorcolumn=80
+
