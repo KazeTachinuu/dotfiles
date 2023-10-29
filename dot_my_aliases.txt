@@ -24,3 +24,5 @@ alias plouf='cd /home/hugo/EPITA/ING/piscine'
 alias cfa='if clang-format-all .; then echo "All Files Formatted"; fi'
 alias ploufa='cd /home/hugo/EPITA/epita-ing-assistants-acu-piscine-2026-lea.bonet'
 alias gpl='git pull'
+
+alias zshrc='nvim /home/hugo/.zshrc'
