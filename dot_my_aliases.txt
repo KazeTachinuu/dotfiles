@@ -7,7 +7,13 @@ alias gp='git push'
 alias gpl='git pull'
 alias gt='git tag -ma'
 alias lea="echo i love you my love"
-alias am='nvim ~/.my_aliases.txt'
 alias bat='batcat'
 alias ctf='cd /mnt/c/Users/hugo/Documents/ctf/'
 alias cfa='clang-format -i --verbose'
+alias v='vim'
+alias am='aliasmanager'
+alias zshalias='vim /home/jeancrien/.my_aliases.txt'
+RM(){
+    arg="$1"
+    rm $(find . -name $arg)
+}

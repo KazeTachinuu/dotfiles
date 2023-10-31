@@ -18,7 +18,7 @@ call vundle#end()
 """" Basic Behavior
 
 set number              " show line numbers
-set rnu                 " show relative line numbers
+" set rnu
 set wrap                " wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
 set mouse=a             " enable mouse support (might not work well on Mac OS X)
@@ -46,6 +46,8 @@ nmap <C-a> gg<S-v>G
 
 " Copy all
 nmap <C-c> <cmd>%y<CR>
+
+nmap <C-f> :w<CR><cmd>!clang-format -i *.c<CR> 
 
 
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -89,4 +91,8 @@ set autoread           " autoreload the file in Vim if it has been changed outsi
 
 set scrolloff=8
 set colorcolumn=80
+set hidden
+set undofile
+
+set undodir=$HOME/.vimundo/
 
