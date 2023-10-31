@@ -102,8 +102,6 @@ set hidden
 set undofile
 
 set undodir=$HOME/.vimundo/
-<<<<<<< HEAD
-=======
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -127,5 +125,4 @@ set nowb
 set noswapfile
 
 let g:snipMate = { 'snippet_version' : 1 }
->>>>>>> 56b8ad00318fec48277d404c6c453398eb32c4e3
 
