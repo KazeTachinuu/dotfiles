@@ -12,6 +12,10 @@ Plugin 'scrooloose/nerdtree'       " NerdTreeToggle avec Ctlr+N
 Plugin 'vim-airline/vim-airline'   " Jolie barre en bas :)
 Plugin 'jiangmiao/auto-pairs'      " Fais moi confiance c'est bien
 Plugin 'w0rp/ale'                  " Syntax Analysis
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 call vundle#end()
 
 
@@ -28,13 +32,14 @@ set showmatch           " highlight matching parentheses / brackets [{()}]
 set laststatus=2        " always show statusline (even with only single window)
 set ruler               " show line and column number of the cursor on right side of statusline
 " set visualbell          " blink cursor on error, instead of beeping
-set clipboard+=unamedplus
+set clipboard=unnamedplus
 
 """" Key Bindings
 
 " move vertically by visual line (don't skip wrapped lines)
 nmap j gj
 nmap k gk
+
 
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
@@ -45,7 +50,7 @@ nmap Q <nop>
 nmap <C-a> gg<S-v>G
 
 " Copy all
-nmap <C-c> <cmd>%y<CR>
+nmap <C-c> <cmd>%y+<CR>
 
 nmap <C-f> :w<CR><cmd>!clang-format -i *.c<CR> 
 
@@ -95,4 +100,27 @@ set hidden
 set undofile
 
 set undodir=$HOME/.vimundo/
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
+
+let g:snipMate = { 'snippet_version' : 1 }
 
