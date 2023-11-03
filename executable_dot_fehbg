@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale --randomize '/home/hugo/Pictures/wallpapers/random/'
+feh --no-fehbg --bg-scale --randomize $HOME/Pictures/wallpapers/random/
