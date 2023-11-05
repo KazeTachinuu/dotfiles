@@ -12,7 +12,7 @@ Plugin 'honza/vim-snippets'        " Collection de snippets sympa
 Plugin 'garbas/vim-snipmate'       " Auto Complete les snippets avec TAB
 Plugin 'tomtom/tlib_vim'           " Pour snippets
 Plugin 'MarcWeber/vim-addon-mw-utils' " Pour Snippets
-Plugin 'sainnhe/sonokai'
+Plugin 'sainnhe/sonokai'            " Good Theme
 call vundle#end()
 
 " INSTALL PLUGIN WITH :PluginInstall
