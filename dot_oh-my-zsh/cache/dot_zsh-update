@@ -1,1 +1,6 @@
-LAST_EPOCH=19654
+LAST_EPOCH=19667
+EXIT_STATUS=1
+ERROR='error: Could not read 38c01a235fef0d990be5ece0d62f94fd06b10571
+fatal: unresolved deltas left after unpacking
+fatal: unpack-objects failed
+There was an error updating. Try again later?'
