@@ -1,9 +1,5 @@
 """" Enable Vundle: vim plugin manager
 
-" required before Vundle initialization
-" set nocompatible        " disable compatibility mode with vi
-" filetype off            " disable filetype detection (but re-enable later, see below)
-
 " set the runtime path to include Vundle, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -12,11 +8,14 @@ Plugin 'scrooloose/nerdtree'       " NerdTreeToggle avec Ctlr+N
 Plugin 'vim-airline/vim-airline'   " Jolie barre en bas :)
 Plugin 'jiangmiao/auto-pairs'      " Fais moi confiance c'est bien
 Plugin 'w0rp/ale'                  " Syntax Analysis
-Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'honza/vim-snippets'        " Collection de snippets sympa
+Plugin 'garbas/vim-snipmate'       " Auto Complete les snippets avec TAB
+Plugin 'tomtom/tlib_vim'           " Pour snippets
+Plugin 'MarcWeber/vim-addon-mw-utils' " Pour Snippets
+Plugin 'sainnhe/sonokai'            " Good Theme
 call vundle#end()
+
+" INSTALL PLUGIN WITH :PluginInstall
 
 
 """" Basic Behavior
@@ -52,11 +51,10 @@ nmap <C-a> gg<S-v>G
 " Copy all
 nmap <C-c> <cmd>%y+<CR>
 
-nmap <C-f> :w<CR><cmd>!clang-format -i *.c<CR> 
+" Format bien ton fichier
+nmap <C-f> :w<CR><cmd>!clang-format -i *.c<CR>
 
-nmap <C-f> :w<CR><cmd>!clang-format -i *.c<CR> 
-
-
+" Affiche un arbre des fichiers
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 
@@ -125,4 +123,3 @@ set nowb
 set noswapfile
 
 let g:snipMate = { 'snippet_version' : 1 }
-
