@@ -1,0 +1,9 @@
+[user]
+	email = hugo.sibony@epita.fr
+	name = Hugo Sibony
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
