@@ -27,7 +27,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 
