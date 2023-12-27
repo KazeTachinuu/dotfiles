@@ -1,6 +1,6 @@
 [user]
-	email = lea.bonet@epita.fr
-	name = Lea Bonet
+	email = hugo.sibony@epita.fr
+	name = Hugo Sibony
 [init]
 	defaultBranch = master
 [pull]
