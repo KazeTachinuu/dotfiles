@@ -1,0 +1,24 @@
+# System Shortcuts
+alias config='cd $HOME/.config/'
+alias vimrc='$EDITOR ~/.vimrc'
+alias amr='source ~/.config/am/aliases.txt'
+
+
+# Check Current IP Address
+alias checkip='curl http://api.ipify.org/'
+
+# Git Aliases
+alias gca='git commit -a -m'
+alias gpt='git push --follow-tags'
+alias gt='git tag -ma'
+alias gpl='git pull'
+alias gcl='git clean -f -d'
+alias gl='git log'
+alias gs='git status'
+alias gp='git push'
+alias gd='git diff'
+alias k='cd /home/hugo/dev/epita/epita-k'
+alias la='ls -la'
+alias xkill='hyprctl kill'
+alias zenmap='NMAP_PRIVILEGED=1 /usr/bin/zenmap'
+alias zshrc='nvim /home/hugo/.zshrc'

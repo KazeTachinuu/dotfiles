@@ -1,0 +1,138 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '''
+[┌──](bold structure)$container$username$hostname[\[](bold structure)$directory[\]](bold structure)$git_branch$git_state$git_status$python$nodejs$rust$golang$c$cpp$cmake$java$dotnet$php$terraform$typst$docker_context$cmd_duration$status$jobs
+[└──](bold structure)$character'''
+
+add_newline = false
+palette = 'elegant'
+
+# Used by the optional transient-prompt shell integration.
+[profiles]
+transient = '[\$](bold identity) '
+
+[palettes.elegant]
+structure = 'blue'
+identity = 'cyan'
+subject = 'yellow'
+alert = 'bright-red'
+muted = 'white'
+subtle = 'white'
+
+[container]
+format = '[\[$name\]](bold alert) '
+
+# Identity appears only when useful: root or a remote shell.
+[username]
+format = '[$user]($style)'
+style_user = 'bold identity'
+style_root = 'bold alert'
+
+[hostname]
+format = '[@$hostname](bold identity) '
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'bold subject'
+before_repo_root_style = 'dimmed subtle'
+repo_root_style = 'bold subject'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+truncate_to_repo = false
+truncation_length = 4
+truncation_symbol = '.../'
+read_only = ' ro'
+read_only_style = 'bold alert'
+
+[git_branch]
+format = ' [\(](bold structure)[$branch](bold subject)[\)](bold structure)'
+
+[git_status]
+format = '([ $all_status$ahead_behind](bold alert))'
+conflicted = '='
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+untracked = '?'
+stashed = '≡'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '×'
+
+[git_state]
+format = ' \([$state( $progress_current/$progress_total)](bold subject)\)'
+
+# Runtimes are contextual: they render only inside matching projects.
+[python]
+format = ' [py ${version}(\($virtualenv\))](muted)'
+version_format = '${raw}'
+
+[nodejs]
+format = ' [node $version](muted)'
+version_format = '${raw}'
+
+[rust]
+format = ' [rust $version](muted)'
+version_format = '${raw}'
+
+[golang]
+format = ' [go $version](muted)'
+version_format = '${raw}'
+
+[c]
+format = ' [c $name $version](muted)'
+version_format = '${raw}'
+disabled = false
+
+[cpp]
+format = ' [cpp $name $version](muted)'
+version_format = '${raw}'
+disabled = false
+
+[cmake]
+format = ' [cmake $version](muted)'
+version_format = '${raw}'
+
+[java]
+format = ' [java $version](muted)'
+version_format = '${raw}'
+
+[dotnet]
+format = ' [dotnet $version( $tfm)](muted)'
+version_format = '${raw}'
+
+[php]
+format = ' [php $version](muted)'
+version_format = '${raw}'
+
+[terraform]
+format = ' [terraform $workspace](muted)'
+
+[typst]
+format = ' [typst $version](muted)'
+version_format = '${raw}'
+
+[docker_context]
+format = ' [docker $context](bold alert)'
+
+[cmd_duration]
+min_time = 3000
+format = ' [$duration](bold subject)'
+
+[status]
+format = ' [exit $status](bold alert)'
+pipestatus = true
+pipestatus_separator = '|'
+pipestatus_format = ' [exit $pipestatus](bold alert)'
+pipestatus_segment_format = '$status'
+disabled = false
+
+[jobs]
+format = ' [$number &](bold subject)'
+symbol = ''
+number_threshold = 1
+
+[character]
+success_symbol = '[\$](bold identity)'
+error_symbol = '[\$](bold alert)'
+vimcmd_symbol = '[\$](bold subject)'
