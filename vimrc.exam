@@ -1,16 +1,3 @@
-" EPITA exam vimrc - memorize these 3 lines, line 1 always first.
-source $VIMRUNTIME/defaults.vim
-set nu et sw=4 sts=4 cc=80
-set hls ic scs cb=unnamedplus
-
-" Line 1: restores vim's defaults (incsearch, scrolloff, mouse, filetype)
-" Line 2: numbers, 4-space indent, 80-column marker
-" Line 3: search highlight + smartcase, yank/paste = system clipboard
-"
-" Built-ins to use:
-"   K           man page for word under cursor
-"   Ctrl-N      complete identifiers (insert mode)
-"   :make :cn   build, jump error to error
-"   :term       shell in a split
-"   *           highlight all uses of word under cursor
-"   Ctrl-W s/v  split horizontal/vertical
+source $VIMRUNTIME/defaults.vim " first: any user vimrc disables defaults.vim
+set nu et sw=4 sts=4 cc=80      " numbers, 4-space indent, 80-column marker
+set hls ic scs cb=unnamedplus   " search highlight, smartcase, system clipboard

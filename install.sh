@@ -1,10 +1,5 @@
 #!/bin/sh
-# Dotfiles installer. Symlinks everything into place, idempotent.
-#
-#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/KazeTachinuu/dotfiles/master/install.sh)"
-#
-# Run from a checkout it uses that checkout; run via curl it clones
-# to ~/.dotfiles first. Existing real files are kept as *.backup.
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/KazeTachinuu/dotfiles/master/install.sh)"
 
 set -e
 
@@ -33,8 +28,7 @@ fi
 
 hdr "dotfiles from $DIR"
 
-# link <src> <dst>: symlink, converging in zero work when already correct.
-# A pre-existing real file is kept once as *.backup.
+# link <src> <dst>: idempotent symlink; a pre-existing real file is kept once as *.backup
 TOTAL=7 N=0    # keep TOTAL equal to the number of link lines below
 link() {
     src="$DIR/$1" dst="$2" N=$((N + 1))

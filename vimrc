@@ -1,10 +1,6 @@
-" Any user vimrc suppresses defaults.vim (incsearch, scrolloff, mouse,
-" ttimeout, filetype indent, last-cursor-position) - restore it first.
-source $VIMRUNTIME/defaults.vim
+source $VIMRUNTIME/defaults.vim        " first: any user vimrc disables defaults.vim
 
-" All autocmds live in one group, cleared on load: re-sourcing this file
-" is idempotent (no duplicated handlers).
-augroup dotfiles | autocmd! | augroup END
+augroup dotfiles | autocmd! | augroup END  " one autocmd group, cleared on re-source
 
 " ---- interface -------------------------------------------------------------
 set number                             " line numbers (gcc and gdb speak in them)
