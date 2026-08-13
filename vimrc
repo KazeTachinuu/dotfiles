@@ -1,7 +1,3 @@
-" Plugin-free vimrc: vim as the fallback editor (nvim is the daily driver).
-" Ported from epita-ing1-setup, minus the PIE-only parts (AFS plugins, LSP,
-" xsel hack). Everything here works on a bare vim 9.
-
 " Any user vimrc suppresses defaults.vim (incsearch, scrolloff, mouse,
 " ttimeout, filetype indent, last-cursor-position) - restore it first.
 source $VIMRUNTIME/defaults.vim
