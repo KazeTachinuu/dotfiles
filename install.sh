@@ -9,43 +9,52 @@
 set -e
 
 if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then
-    G='\033[1;32m' B='\033[1;34m' R='\033[0m'
+    G='\033[1;32m' B='\033[1;34m' Y='\033[1;33m' D='\033[2m' R='\033[0m'
 else
-    G= B= R=
+    G= B= Y= D= R=
 fi
-say() { printf "${G}[+]${R} %s\n" "$1"; }
+hdr()  { printf "${B}[*]${R} %s\n" "$1"; }
+ok()   { printf "${G}[+]${R} %s\n" "$1"; }
+skip() { printf "${D}[=] %s${R}\n" "$1"; }
+warn() { printf "${Y}[!]${R} %s\n" "$1"; }
 
 # locate the repo: the directory this script lives in, or a fresh clone
 DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 if [ ! -e "$DIR/zshrc" ]; then
     DIR="$HOME/.dotfiles"
     if [ -d "$DIR/.git" ]; then
-        say "updating $DIR"
-        git -C "$DIR" pull -q
+        hdr "updating $DIR"
+        git -C "$DIR" pull --progress
     else
-        say "cloning to $DIR"
-        git clone -q https://github.com/KazeTachinuu/dotfiles "$DIR"
+        hdr "cloning to $DIR"
+        git clone --progress https://github.com/KazeTachinuu/dotfiles "$DIR"
     fi
 fi
 
-printf "${B}==>${R} dotfiles from %s\n" "$DIR"
+hdr "dotfiles from $DIR"
 
 # link <src> <dst>: symlink, converging in zero work when already correct.
 # A pre-existing real file is kept once as *.backup.
+TOTAL=7 N=0    # keep TOTAL equal to the number of link lines below
 link() {
-    src="$DIR/$1" dst="$2"
-    [ "$(readlink "$dst" 2>/dev/null)" = "$src" ] && return 0
+    src="$DIR/$1" dst="$2" N=$((N + 1))
+    [ -e "$src" ] || { warn "[$N/$TOTAL] $1 not in repo, skipped"; return 0; }
+    [ "$(readlink "$dst" 2>/dev/null)" = "$src" ] && { skip "[$N/$TOTAL] $dst"; return 0; }
     if [ -e "$dst" ] && [ ! -L "$dst" ]; then
         mv "$dst" "$dst.backup"
+        warn "kept old file as $dst.backup"
     fi
     mkdir -p "$(dirname "$dst")"
     ln -sfn "$src" "$dst"
-    say "linked $dst"
+    ok "[$N/$TOTAL] linked $dst"
 }
 
 link zshrc          "$HOME/.zshrc"
 link aliases.txt    "$HOME/.config/am/aliases.txt"
 link starship.toml  "$HOME/.config/starship.toml"
 link nvim           "$HOME/.config/nvim"
+link vimrc          "$HOME/.vimrc"
+link gdbinit        "$HOME/.gdbinit"
+link clang-format   "$HOME/.clang-format"
 
-printf "${G}==>${R} done. Restart your shell.\n"
+hdr "done, restart your shell"
