@@ -13,23 +13,7 @@ ok()   { printf "${G}[+]${R} %s\n" "$1"; }
 skip() { printf "${D}[=] %s${R}\n" "$1"; }
 warn() { printf "${Y}[!]${R} %s\n" "$1"; }
 
-# locate the repo: the directory this script lives in, or a fresh clone
-DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-if [ ! -e "$DIR/zshrc" ]; then
-    DIR="$HOME/.dotfiles"
-    if [ -d "$DIR/.git" ]; then
-        hdr "updating $DIR"
-        git -C "$DIR" pull --progress
-    else
-        hdr "cloning to $DIR"
-        git clone --progress https://github.com/KazeTachinuu/dotfiles "$DIR"
-    fi
-fi
-
-hdr "dotfiles from $DIR"
-
 # link <src> <dst>: idempotent symlink; a pre-existing real file is kept once as *.backup
-TOTAL=7 N=0    # keep TOTAL equal to the number of link lines below
 link() {
     src="$DIR/$1" dst="$2" N=$((N + 1))
     [ -e "$src" ] || { warn "[$N/$TOTAL] $1 not in repo, skipped"; return 0; }
@@ -43,12 +27,33 @@ link() {
     ok "[$N/$TOTAL] linked $dst"
 }
 
-link zshrc          "$HOME/.zshrc"
-link aliases.txt    "$HOME/.config/am/aliases.txt"
-link starship.toml  "$HOME/.config/starship.toml"
-link nvim           "$HOME/.config/nvim"
-link vimrc          "$HOME/.vimrc"
-link gdbinit        "$HOME/.gdbinit"
-link clang-format   "$HOME/.clang-format"
+# everything imperative lives in main, called on the last line: a truncated
+# curl | sh download defines a broken function and executes nothing
+main() {
+    # locate the repo: the directory this script lives in, or a fresh clone
+    DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+    if [ ! -e "$DIR/zshrc" ]; then
+        DIR="$HOME/.dotfiles"
+        if [ -d "$DIR/.git" ]; then
+            hdr "updating $DIR"
+            git -C "$DIR" pull --progress
+        else
+            hdr "cloning to $DIR"
+            git clone --progress https://github.com/KazeTachinuu/dotfiles "$DIR"
+        fi
+    fi
 
-hdr "done, restart your shell"
+    hdr "dotfiles from $DIR"
+
+    TOTAL=7 N=0    # keep TOTAL equal to the number of link lines below
+    link zshrc          "$HOME/.zshrc"
+    link aliases.txt    "$HOME/.config/am/aliases.txt"
+    link starship.toml  "$HOME/.config/starship.toml"
+    link nvim           "$HOME/.config/nvim"
+    link vimrc          "$HOME/.vimrc"
+    link gdbinit        "$HOME/.gdbinit"
+    link clang-format   "$HOME/.clang-format"
+
+    hdr "done, restart your shell"
+}
+main "$@"
