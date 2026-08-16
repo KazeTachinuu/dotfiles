@@ -13,11 +13,13 @@ ok()   { printf "${G}[+]${R} %s\n" "$1"; }
 skip() { printf "${D}[=] %s${R}\n" "$1"; }
 warn() { printf "${Y}[!]${R} %s\n" "$1"; }
 
-# link <src> <dst>: idempotent symlink; a pre-existing real file is kept once as *.backup
+# link <src> <dst>: idempotent symlink; a pre-existing real file is
+# kept once as *.backup
 link() {
     src="$DIR/$1" dst="$2" N=$((N + 1))
     [ -e "$src" ] || { warn "[$N/$TOTAL] $1 not in repo, skipped"; return 0; }
-    [ "$(readlink "$dst" 2>/dev/null)" = "$src" ] && { skip "[$N/$TOTAL] $dst"; return 0; }
+    [ "$(readlink "$dst" 2>/dev/null)" = "$src" ] &&
+        { skip "[$N/$TOTAL] $dst"; return 0; }
     if [ -e "$dst" ] && [ ! -L "$dst" ]; then
         mv "$dst" "$dst.backup"
         warn "kept old file as $dst.backup"

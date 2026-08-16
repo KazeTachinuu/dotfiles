@@ -1,10 +1,12 @@
-source $VIMRUNTIME/defaults.vim        " first: any user vimrc disables defaults.vim
+" any user vimrc disables defaults.vim: restore it first
+source $VIMRUNTIME/defaults.vim
 
-augroup dotfiles | autocmd! | augroup END  " one autocmd group, cleared on re-source
+" one autocmd group, cleared on re-source
+augroup dotfiles | autocmd! | augroup END
 
 " ---- interface -------------------------------------------------------------
-set number                             " line numbers (gcc and gdb speak in them)
-set mouse=a                            " mouse in every mode, any terminal
+set number                             " line numbers
+set mouse=a                            " mouse in all modes
 set wildmode=longest:full,full         " complete longest, then cycle
 set wildoptions=pum                    " popup completion menu for :commands
 set laststatus=2                       " always show the statusline
@@ -14,7 +16,7 @@ set breakindent                        " wrapped lines keep their indent
 set splitright splitbelow              " new splits open right/below
 set hidden                             " switch buffers without saving first
 set autoread                           " pick up external file changes
-set ttimeoutlen=50                     " snappy Esc
+set ttimeoutlen=50                     " short Esc key-code timeout
 set clipboard=unnamedplus              " y/p use the system clipboard
 
 " ---- colors ----------------------------------------------------------------
@@ -22,21 +24,21 @@ set termguicolors background=dark
 silent! colorscheme habamax
 
 " ---- C style (EPITA) -------------------------------------------------------
-set colorcolumn=80                     " the style's hard line limit
+set colorcolumn=80                     " 80-column limit marker
 set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 set shiftround                         " >> snaps to multiples of 4
 set autoindent
-set list listchars=tab:>-,trail:-      " expose tabs and trailing spaces
+set list listchars=tab:>-,trail:-      " show tabs and trailing spaces
 autocmd dotfiles FileType c,cpp setlocal cinoptions=(0,:0 formatoptions+=j
 
 " ---- search ----------------------------------------------------------------
 set hlsearch ignorecase smartcase      " highlight all; smart casing
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" ---- files: undo yes, clutter no -------------------------------------------
+" ---- files -----------------------------------------------------------------
 set undofile undodir=~/.vim/undo//     " undo history survives closing files
 silent! call mkdir($HOME . '/.vim/undo', 'p')
-set nowritebackup noswapfile           " no *~ and .swp litter in repos
+set nowritebackup noswapfile           " no backup/swap files
 
 " ---- movement --------------------------------------------------------------
 nnoremap <expr> j v:count ? 'j' : 'gj'
@@ -71,10 +73,11 @@ nnoremap <leader>p :cprev<CR>
 nnoremap <leader>q :copen<CR>
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 if executable('clang-format')          " gq formats with the repo style
-  autocmd dotfiles FileType c,cpp setlocal formatprg=clang-format\ --style=file\ --fallback-style=none
+  autocmd dotfiles FileType c,cpp setlocal
+      \ formatprg=clang-format\ --style=file\ --fallback-style=none
 endif
 
-" ---- built-in power ---------------------------------------------------------
+" ---- built-in plugins -------------------------------------------------------
 packadd! termdebug                     " :Termdebug ./a.out - GDB UI in vim
 packadd! comment                       " gcc / gc toggles comments
 packadd! matchit                       " % jumps on #if / #endif

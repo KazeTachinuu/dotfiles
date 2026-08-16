@@ -1,8 +1,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = '''
-[┌──](bold structure)$container$username$hostname[\[](bold structure)$directory[\]](bold structure)$git_branch$git_state$git_status$python$nodejs$rust$golang$c$cpp$cmake$java$dotnet$php$terraform$typst$docker_context$cmd_duration$status$jobs
-[└──](bold structure)$character'''
+# a \ at end of line joins lines; the doubled \\[ is TOML escaping for \[
+format = """
+[┌──](bold structure)$container$username$hostname\
+[\\[](bold structure)$directory[\\]](bold structure)\
+$git_branch$git_state$git_status\
+$python$nodejs$rust$golang$c$cpp$cmake$java$dotnet$php\
+$terraform$typst$docker_context$cmd_duration$status$jobs
+[└──](bold structure)$character"""
 
 add_newline = false
 palette = 'elegant'
@@ -36,7 +41,10 @@ format = '[$path]($style)[$read_only]($read_only_style)'
 style = 'bold subject'
 before_repo_root_style = 'dimmed subtle'
 repo_root_style = 'bold subject'
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+repo_root_format = """
+[$before_root_path]($before_repo_root_style)\
+[$repo_root]($repo_root_style)\
+[$path]($style)[$read_only]($read_only_style)"""
 truncate_to_repo = false
 truncation_length = 4
 truncation_symbol = '.../'
